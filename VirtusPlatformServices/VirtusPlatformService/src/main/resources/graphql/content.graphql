@@ -1,0 +1,17 @@
+type Content {
+    description: String!
+    lesson: Lesson!
+    typeContent: String!
+    idType: ID!
+    id: ID!
+}
+
+extend type Query {
+    getAllContent: [Content]
+    contentById(id: ID!): Content!
+}
+
+extend type Mutation {
+    newContent(typeContent: String!, idType:ID, description: String!, lessonId: ID!): Content!
+    deleteContent(id: ID!) : Boolean
+}

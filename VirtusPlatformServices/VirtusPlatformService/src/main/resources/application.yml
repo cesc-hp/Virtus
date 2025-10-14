@@ -1,0 +1,49 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 800MB
+      max-request-size: 800MB
+  profiles:
+    active: dev
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  main:
+    banner-mode: off
+
+server:
+  port:
+    8000
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: false
+    exception-handlers-enabled: true
+  tools:
+    schema-location-pattern: "**/*.graphql"
+      # Enable or disable the introspection query. Disabling it puts your server in contravention of the GraphQL
+      # specification and expectations of most clients, so use this option with caution
+    introspection-enabled: true
+
+
+altair:
+  enabled: true
+  mapping: /altair
+  endpoint.graphql: /graphql
+  pageTitle: Altair
+  props.resources.variables: altair/variables.graphql
+
+elplatform:
+  app:
+  jwtSecret: bezKoderSecretKey
+  jwtExpirationMs: 86400000
+
+app:
+  ejemplo: 20

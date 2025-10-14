@@ -1,0 +1,16 @@
+version: '3.8'
+# crear otro dockerfile con el java8, node, las referencias al sdk y el gradle
+
+services:
+    qmobile_cliente:
+        working_dir: /app
+        image: node:dev
+        volumes: 
+            - .:/app
+            - npm-global:/usr/local/share/npm-global
+        # command: ['quasar','dev']
+        command: ./entrypoint_apk_release.sh
+        stdin_open: true
+        container_name: qmobile_cliente_container
+volumes:
+    npm-global:

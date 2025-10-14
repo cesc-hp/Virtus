@@ -1,0 +1,32 @@
+type ImgType {
+    url: String!
+    name: String!
+    created: String!
+    id: ID!
+}
+
+type PageResponse {
+    content: [ImgType],
+    totalElements: Int,
+    totalPages: Int,
+}
+
+input GalleryFilter{
+    key: String!,
+    value: String
+}
+
+input Pagination{
+    page: Int,
+    size: Int
+}
+
+extend type Query {
+    imgById(id: ID!): ImgType!
+    getAllImg(filter: GalleryFilter, paginate: Pagination): PageResponse
+}
+
+extend type Mutation {
+    newImg(file: Upload): ImgType!
+    deleteImg(id: ID!) : Boolean
+}

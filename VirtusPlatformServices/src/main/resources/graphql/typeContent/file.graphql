@@ -1,0 +1,9 @@
+type FileType {
+    url: String!
+    name: String!
+    id: ID!
+}
+
+extend type Mutation {
+    newFile(url: String!, name: String!): FileType!
+}

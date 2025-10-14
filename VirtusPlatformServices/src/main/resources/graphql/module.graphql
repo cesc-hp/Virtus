@@ -1,0 +1,18 @@
+type Module {
+    id: ID!
+    title: String!
+    img: ImgType
+    course: Course!
+    lessons: [Lesson]
+}
+
+extend type Query {
+    getAllModules: [Module]
+    moduleById(id: ID!): Module!
+}
+
+extend type Mutation {
+    newModule(title: String!, idImg: ID!, courseId: ID!): Module!
+    deleteModule(id: ID!) : Boolean
+    updateModule(id:ID!, title: String!, idImg: ID!) : Module!
+}

@@ -1,0 +1,25 @@
+spring:
+  profiles: dev
+  main:
+    banner-mode: off
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/virtus
+#    url: jdbc:postgresql://localhost:5432/virtus_main_db
+    username: postgres
+    password: postgres
+
+# URL Recursos
+resources.url: src/main/resources/
+

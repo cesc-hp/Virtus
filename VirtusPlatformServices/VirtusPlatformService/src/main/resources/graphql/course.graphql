@@ -1,0 +1,20 @@
+scalar Upload
+
+type Course {
+    id: ID!
+    name: String!
+    description: String!
+    img: ImgType
+    modules: [Module]
+}
+
+type Query {
+    getAllCourse: [Course]
+    courseById(id: ID!): Course!
+}
+
+type Mutation {
+    newCourse(name: String!, description: String!, idImg: ID!): Course!
+    deleteCourse(id: ID!) : Boolean
+    updateCourse(id:ID!, name: String!, description: String!, idImg: ID!) : Course!
+}

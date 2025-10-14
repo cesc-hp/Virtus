@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  virtus_web_cliente:
+    user: "1000:1000"
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    working_dir: /app
+    image: node:dev
+    volumes:
+      - ..:/app
+      - npm-global:/usr/local/share/npm-global
+    # command: /bin/sh
+    command: ./virtus-web-docker/entrypoint_dev.sh
+    stdin_open: true
+    container_name: virtus_web_client_container
+    ports:
+      - "8081:8081"
+      #   - "49153:49153"
+      - "4001:4000" #majestic (jest ui)
+    networks:
+      - virtus-web
+
+networks:
+  virtus-web:
+
+volumes:
+  # para crear el volumen, el sistema se encarga de darle un path
+  #npm-global:
+  # cuando el volumen está creado
+  npm-global:
+    external: true
+    name: docker_npm-global

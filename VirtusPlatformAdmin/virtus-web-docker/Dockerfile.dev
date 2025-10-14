@@ -1,0 +1,16 @@
+FROM node:12.18.2-alpine
+
+ARG NPM_GLOBAL=/usr/local/share/npm-global
+ENV PATH=${PATH}:${NPM_GLOBAL}/bin
+
+# RUN apk update \
+# && apk upgrade \
+#crear la carpeta del npm global
+RUN mkdir -p ${NPM_GLOBAL} \
+    #el npm va a guardar ahora en nuestra carpeta global
+    && npm config -g set prefix ${NPM_GLOBAL} \
+    && apk add git \
+    #instala estos paquetes si no los encuentra
+    && if [ $(npm list -g | grep -c @quasar/cli) -eq 0 ]; then npm i -g @quasar/cli; fi \
+    && if [ $(npm list -g | grep -c eslint) -eq 0 ]; then npm i -g eslint; fi   \
+    && if [ $(npm list -g | grep -c yarn) -eq 0 ]; then npm i -g yarn; fi

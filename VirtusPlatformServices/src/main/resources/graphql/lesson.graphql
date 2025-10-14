@@ -1,0 +1,19 @@
+type Lesson {
+    id: ID!
+    title: String!
+    img: ImgType
+    module: Module!
+    contents: [Content]
+}
+
+extend type Query {
+    getAllLesson: [Lesson]
+    lessonById(id: ID!): Lesson!
+}
+
+extend type Mutation {
+    newLesson(title: String!, idImg: ID!, moduleId: ID!): Lesson!
+    deleteLesson(id: ID!) : Boolean
+    updateLesson(id:ID!, title: String!, idImg: ID!) : Lesson!
+}
+

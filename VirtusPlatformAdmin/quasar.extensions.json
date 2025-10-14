@@ -1,0 +1,6 @@
+{
+  "@quasar/apollo": {
+    "graphql_uri": "http://localhost:8000/graphql"
+  },
+  "@quasar/qmediaplayer": {}
+}

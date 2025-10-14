@@ -1,0 +1,219 @@
+// app global css in SCSS form
+
+@import "fonts.scss";
+
+body {
+  font-family: Monserrat, monospace;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.title {
+  font-family: Lovato, monospace;
+  font-style: light;
+  font-weight: light;
+}
+
+/* ANIMACIONES DEL MENU
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+  --transition-duration: 0.3s;
+  --transition-delay: 0.2s;
+}
+.menu a {
+  position: relative;
+  display: block;
+  padding: 10px;
+}
+.menu .border {
+  position: absolute;
+  left: 0;
+  background: currentColor;
+  transition: transform var(--transition-duration) ease-in-out;
+}
+.menu .border-top,
+.menu .border-bottom {
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+}
+.menu .border-left,
+.menu .border-right {
+  width: 1px;
+  height: 100%;
+  transform: scaleY(0);
+}
+.menu .border-top,
+.menu .border-left,
+.menu .border-right {
+  top: 0;
+}
+.menu .border-bottom {
+  bottom: 0;
+  transform-origin: bottom right;
+}
+.menu .border-top {
+  transform-origin: top left;
+}
+.menu .border-right {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+.menu a:hover .border-top,
+.menu a:hover .border-bottom {
+  transform: scaleX(1);
+}
+.menu a:hover .border-left,
+.menu a:hover .border-right {
+  transform: scaleY(1);
+}
+.menu[data-animation="diagonal"] .border-left {
+  transform-origin: top left;
+}
+.menu[data-animation="diagonal"] .border-right,
+.menu[data-animation="diagonal"] .border-bottom {
+  transform-origin: bottom right;
+}
+.menu[data-animation="diagonal"] a:hover [class^="border"] {
+  transition-delay: 0s;
+}
+
+// css de la plantilla
+
+.main_line {
+  font-size: 75px;
+  letter-spacing: 5px;
+  line-height: 60px;
+  font-weight: 600;
+}
+
+.custom-caption {
+  text-align: center;
+  padding: 12px;
+  color: white;
+}
+
+.animation_1 {
+  -webkit-animation: bounceIn 1s ease-in 800ms both;
+  animation: bounceIn 1s ease-in 800ms both;
+}
+
+.animation_2 {
+  -webkit-animation: flipInX 2s ease-in-out 800ms both;
+  animation: flipInX 1s ease-in-out 800ms both;
+}
+.animation_3 {
+  -webkit-animation: lightSpeedIn 1s ease-in 800ms both;
+  animation: lightSpeedIn 1s ease-in 800ms both;
+}
+.description {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  box-shadow: 1px 1px 2px #e6e6e6;
+}
+.my-header {
+  width: 200px;
+  top: 0;
+  height: 45px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 17px;
+  margin: 20px 0 0 68px;
+  padding: 25px;
+}
+.my-text {
+  width: 100%;
+  top: 0;
+  height: 90px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin: 79px 0 0 0;
+  padding: 20px;
+  line-height: normal;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+.box-shadow:hover {
+  box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2),
+    0 20px 31px 3px rgba(0, 0, 0, 0.14), 0 8px 38px 7px rgba(0, 0, 0, 0.12) !important;
+}
+.my-card {
+  width: 350px;
+  max-width: 350px;
+  margin-top: 10px;
+}
+.team-header {
+  width: 100%;
+  top: 0;
+  height: 45px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 17px;
+  margin: 60px 0 0 0;
+  padding: 12px;
+}
+.team-text {
+  width: 100%;
+  top: 0;
+  height: 90px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin: 100px 0 0 0;
+  padding: 20px;
+  line-height: normal;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+/*TESTIMONIALS*/
+.testimony-parallax {
+  background: url(../assets/imagen/team_9.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.testimony-img {
+  margin-top: 100px;
+  border-radius: 5px;
+  border: 4px solid $primary;
+}
+.testimony-span {
+  color: $primary;
+}
+.testimony-bg {
+  background-color: #000000ee !important;
+}
+/*********************/
+
+.pricing {
+  background: url(../assets/imagen/team_8.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.contact_us {
+  background: url(../assets/imagen/team_15.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.custom_tab {
+  width: auto;
+}
+
+/* CARDS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.custom-card {
+  max-width: 20rem;
+  // min-width: 280px;
+}

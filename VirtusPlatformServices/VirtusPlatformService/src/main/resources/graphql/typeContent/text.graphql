@@ -1,0 +1,13 @@
+type TextType {
+    text: String!
+    id: ID!
+}
+
+extend type Query {
+    textById(id: ID!): TextType!
+}
+
+extend type Mutation {
+    newText(text: String): TextType!
+    deleteText(id: ID!) : Boolean
+}

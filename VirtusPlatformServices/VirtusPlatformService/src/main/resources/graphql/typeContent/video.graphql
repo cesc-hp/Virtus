@@ -1,0 +1,19 @@
+type VideoType {
+    url: String!
+    name: String!
+    title: String!
+    description: String!
+    created: String!
+    id: ID!
+}
+
+extend type Query {
+    videoById(id: ID!): VideoType!
+    getAllVideo: [VideoType]
+}
+
+extend type Mutation {
+    newVideo(file: Upload!, title: String, description: String): VideoType!
+    updateVideo(id:ID!, title: String, description: String) : VideoType!
+    deleteVideo(id: ID!) : Boolean
+}

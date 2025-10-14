@@ -1,0 +1,1 @@
+quasar build -m cordova -T android -- --buildConfig="../build.cordova.json"
